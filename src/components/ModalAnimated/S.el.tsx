@@ -10,6 +10,8 @@ export const Close = styled(theme === 'light' ? CloseIcon : WhiteCloseIcon)`
   cursor: pointer;
   top: 20px;
   right: 20px;
+  fill: ${(props) => props.theme.v2.blackText};
+  stroke: ${(props) => props.theme.v2.blackText};
 
   @media ${Device.mobile} {
     display: none;
@@ -63,8 +65,7 @@ export const ModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.modalBackground};
-
+  background-color: ${(props) => props.theme.v2.modalBg};
   display: block;
   transition: 0.3s;
   z-index: 99999;
@@ -89,9 +90,8 @@ export const Center = styled.div`
 
 export const Content = styled.div`
   margin: 0 20px;
-  background: #fff;
-  background: ${(props) => props.theme.lkMain.balanceBlock};
-  border: ${(props) => props.theme.modalBorder};
+  background: ${(props) => props.theme.v2.bg};
+  border: 1px solid ${(props) => props.theme.v2.bg};
   box-sizing: border-box;
   border-radius: 8px;
   display: flex;

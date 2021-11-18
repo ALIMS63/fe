@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect, FC, useCallback } from 'react';
 import Highcharts from 'highcharts/highstock';
-import HighchartsReact from 'highcharts-react-official';
 import { Container } from '../../../../components/UI/Container';
 import { LeftIcon } from '../../../PrivateArea/Styles.elements';
 import * as S from './S.elements';
@@ -12,6 +11,7 @@ import { ReactComponent as Arrow } from '../../../../assets/v2/svg/arrow-exchang
 import { Dropdown } from './components/Dropdown';
 import { ChartDesctop } from './ChartDesctop';
 import { ChartContext } from '../../../../context/ChartContext';
+import { Loading } from '../../../../components/UI/Loading';
 
 require('highcharts/modules/exporting')(Highcharts);
 
@@ -110,7 +110,7 @@ export const ChartActiv: FC<Props> = ({
                   .utc(data[data.length - 1].date)
                   .tz('Europe/Moscow')
                   .format('DD.MM.YYYY, dddd, HH:mm')}
-                MCK
+                МСК
               </S.Date>
             </S.PriceChangesWrap>
           );
@@ -131,7 +131,7 @@ export const ChartActiv: FC<Props> = ({
                   .utc(data[data.length - 1].date)
                   .tz('Europe/Moscow')
                   .format('DD.MM.YYYY, dddd, HH:mm')}{' '}
-                MCK
+                МСК
               </S.Date>
             </S.PriceChangesWrap>
           );
@@ -152,7 +152,7 @@ export const ChartActiv: FC<Props> = ({
                   .utc(data[data.length - 1].date)
                   .tz('Europe/Moscow')
                   .format('DD.MM.YYYY, dddd, HH:mm')}{' '}
-                MCK
+                МСК
               </S.Date>
             </S.PriceChangesWrap>
           );
@@ -173,7 +173,7 @@ export const ChartActiv: FC<Props> = ({
                   .utc(data[data.length - 1].date)
                   .tz('Europe/Moscow')
                   .format('DD.MM.YYYY, dddd, HH:mm')}{' '}
-                MCK
+                МСК
               </S.Date>
             </S.PriceChangesWrap>
           );
@@ -256,8 +256,8 @@ export const ChartActiv: FC<Props> = ({
                     .utc(data[data.length - 1].date)
                     .tz('Europe/Moscow')
                     .format('DD.MM.YYYY, dd, HH:mm')
-                : null} 
-              &nbsp; МСK
+                : null}
+              &nbsp; МСК
             </S.TooltipsDate>
             <S.TooltipsValue>
               {valCWD ? valCWD.toLocaleString() : data.length ? returnValues() : 0} CWD
@@ -271,22 +271,33 @@ export const ChartActiv: FC<Props> = ({
             ))}
           </S.Buttons>
         </S.ChartHeader>
-        {/* {data1().length && <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />} */}
-        {activeTab === 'День' ? (
-          <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
-        ) : null}
-        {activeTab === 'Месяц' ? (
-          <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
-        ) : null}
-        {activeTab === 'Квартал' ? (
-          <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
-        ) : null}
-        {activeTab === 'Год' ? (
-          <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
-        ) : null}
-        {activeTab === 'Все время' ? (
-          <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
-        ) : null}
+        {(!loadMGCWD && type === 'MGCWD') ||
+        (!loadGCWD && type === 'GCWD') ||
+        (!loadGLOBAL && type === 'GLOBAL') ||
+        (!loadDIAMOND && type === 'DIAMOND') ? (
+          <>
+            {activeTab === 'День' ? (
+              <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
+            ) : null}
+            {activeTab === 'Месяц' ? (
+              <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
+            ) : null}
+            {activeTab === 'Квартал' ? (
+              <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
+            ) : null}
+            {activeTab === 'Год' ? (
+              <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
+            ) : null}
+            {activeTab === 'Все время' ? (
+              <ChartDesctop data={data1()} setDate={setDate} setValCWD={setValCWD} />
+            ) : null}
+          </>
+        ) : (
+          <S.LoaderWrap>
+            <Loading />
+            <S.LoaderInner className="is-placeholder" />
+          </S.LoaderWrap>
+        )}
         {/* <S.MobChartBlock mob>
           <MobChart data={data1()} setDate={setDate} setValCWD={setValCWD} />
         </S.MobChartBlock> */}

@@ -10,14 +10,13 @@ html{
   min-height: 100vh;
   /* scroll-behavior: smooth; */
 }
-body{
+body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.25;
-    color:${(props) => props.theme.text};
+    color: ${(props) => props.theme.text};
     position: relative;
     font-weight: 400;
-    background: #f9fafb;
     background:${({ theme }) => theme.main.bodyBackground};
     background-repeat: no-repeat;
     height: 100%;
@@ -48,10 +47,11 @@ a{
         width: 100%;
         visibility: visible;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.075);
+        background-color: rgba(202, 78, 78, 0.075);
         animation: flickerAnimation 1.5s infinite;
     }
 }
+
 .chart-toltip{
   display: flex;
   flex-direction: column;
@@ -364,7 +364,6 @@ button {
   outline: none;
   border: 0;
 }
-
 `;
 
 export const Container = styled.div<{ pNone?: boolean; bigMargin?: boolean; ppNone?: boolean }>`
