@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactComponent as Copy } from '../../assets/svg/copy.svg';
 import { ReactComponent as LockIcon } from '../../assets/v2/svg/lock.svg';
 import { ReactComponent as LogOutIcon } from '../../assets/v2/svg/logOut.svg';
+import { ReactComponent as DarkLogOutIcon } from '../../assets/svg/dark-logout-icon.svg';
 import { Header } from '../../components/Header/Header';
 import { Modal } from '../../components/Modal/Modal';
 import { Notification } from '../../components/Notify/Notification';
@@ -32,6 +33,7 @@ import { ConvertingModal } from './Converting/ConvertingModal';
 import { DepositListModal } from './Modals';
 import * as Styled from './Styles.elements';
 import { countVolumeToShow } from './utils';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export const HeaderBar: FC = () => {
   const { t } = useTranslation();
@@ -99,6 +101,7 @@ export const HeaderBar: FC = () => {
   const [withDrawModal, setWithDrawModal] = useState<boolean>(false);
   //   const [addDrawModal, setAddDrawModal] = useState<boolean>(addDrawModalOpen);
   const [clickedIndex, setClickedIndex] = useState<number>(0);
+  const {theme} = useContext(ThemeContext);
 
   // Get Balance Kinds List as an Array
   const balancesList = useMemo(() => {
@@ -742,7 +745,11 @@ export const HeaderBar: FC = () => {
           <H4>Личный кабинет</H4>
           <LogoutButton onClick={handleLogOut}>
             <UsernameText>{user}</UsernameText>
+            {theme === 'light' ? 
             <LogOutIcon />
+            :
+            <DarkLogOutIcon/>
+            }
           </LogoutButton>
         </PanelTitleBlock>
         <PanelCard>
@@ -1177,6 +1184,7 @@ const UsernameText = styled.span`
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+  color: ${(props) => props.theme.lkMain.navLink};
 `;
 
 const PanelCard = styled(Card)`

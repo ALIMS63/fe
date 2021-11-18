@@ -143,6 +143,9 @@ declare module 'styled-components' {
       selectBorder: string;
       inputPlaceholder: string;
     };
+    modalBackground: string;
+    modalBorder: string;
+
     main: {
       bodyBackground: string;
       bodyColor: string;

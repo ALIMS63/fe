@@ -24,7 +24,7 @@ const text = css`
 
 export const Text = styled.p<{ red?: boolean }>`
   ${text}
-  color: ${(props) => (props.red ? '#FF4A31' : '#000')};
+  color: ${(props) => (props.red ? '#FF4A31' : props.theme.lkMain.navLink)};
   a {
     text-decoration: underline;
     color: #0094ff;

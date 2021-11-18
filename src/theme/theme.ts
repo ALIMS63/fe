@@ -144,6 +144,8 @@ export const lightTheme = {
     selectBorder: '1px solid #edf0f7',
     inputPlaceholder: 'rgba(0, 0, 0, 0.4)',
   },
+  modalBackground: 'rgba(38, 50, 56, 0.5)',
+  modalBorder: '1px solid rgba(255, 255, 255, 0.5)',
 
   // NEW CODE
   main: {
@@ -339,6 +341,8 @@ export const darkTheme = {
     selectBorder: '1px solid rgba(81, 81, 114, 0.4)',
     inputPlaceholder: 'rgba(255, 255, 255, 0.4)',
   },
+  modalBackground: 'rgba(15, 15, 20, 0.8)',
+  modalBorder: 'none',
 
   // NEW CODE
 

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '../../../../components/Button/V2/Button';
 import { routers } from '../../../../constantes/routers';
 import { AppContext } from '../../../../context/HubContext';
+import { ThemeContext } from '../../../../context/ThemeContext';
 import { BalanceKind } from '../../../../enums/balanceKind';
 import useWindowSize from '../../../../hooks/useWindowSize';
 import { ListDeposits } from '../../../../types/deposits';
@@ -37,6 +38,8 @@ export const ShowDeposit: FC<IProps> = ({ chosenDepositView }: IProps) => {
   const history = useHistory();
   const { deposit } = chosenDepositView;
   const { hubConnection, depositsFilter } = useContext(AppContext);
+  const { theme } = useContext(ThemeContext);
+
   const [isOpenCloseDeposit, setIsOpenCloseDeposit] = useState<boolean>(false);
   const [isAgree, setIsAgree] = useState<boolean>(false);
   const [calculated, setCalculated] = useState<IBalanceExchange>();
@@ -88,7 +91,8 @@ export const ShowDeposit: FC<IProps> = ({ chosenDepositView }: IProps) => {
   };
 
   const colorSwitcher = (type: string) => {
-    if (type === 'active') return '#EFECFF';
+    if (theme === 'dark') return '#33333A;';
+    else if (type === 'active') return '#EFECFF';
     else if (type === 'archived') return '#E0F8FF';
     else if (type === 'hold') return '#DAFFE2';
   };

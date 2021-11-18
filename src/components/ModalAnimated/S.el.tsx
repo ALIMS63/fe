@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components/macro';
 import { ReactComponent as CloseIcon } from '../../assets/v2/svg/close.svg';
+import { ReactComponent as WhiteCloseIcon } from '../../assets/svg/CloseIcon.svg';
 import { Device } from '../../Pages/PrivateArea/consts';
 
-export const Close = styled(CloseIcon)`
+const theme = localStorage.getItem('theme');
+
+export const Close = styled(theme === 'light' ? CloseIcon : WhiteCloseIcon)`
   position: absolute;
   cursor: pointer;
   top: 20px;
@@ -60,7 +63,8 @@ export const ModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(38, 50, 56, 0.5);
+  background-color: ${(props) => props.theme.modalBackground};
+
   display: block;
   transition: 0.3s;
   z-index: 99999;
@@ -86,10 +90,10 @@ export const Center = styled.div`
 export const Content = styled.div`
   margin: 0 20px;
   background: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: ${(props) => props.theme.lkMain.balanceBlock};
+  border: ${(props) => props.theme.modalBorder};
   box-sizing: border-box;
   border-radius: 8px;
-  /* width: 480px; */
   display: flex;
   flex-direction: column;
   align-items: center;
