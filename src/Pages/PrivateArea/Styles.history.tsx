@@ -41,7 +41,7 @@ export const FilterAllBlock = styled.div<{ mbNone?: boolean }>`
 export const Table = styled.div<{ none?: boolean }>`
   width: 100%;
   margin-bottom: 40px;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
   border-radius: 4px;
   min-height: 530px;
 `;
@@ -50,7 +50,7 @@ export const TableMap = styled.div`
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
-  background: #fff;
+  background: ${(props) => props.theme.v2.bg};
 `;
 
 type TableProps = {
@@ -70,10 +70,10 @@ export const TableItem = styled.div<TableProps>`
   @media (max-width: 1024px) {
     height: ${({ head }) => (head ? '56px' : '60px')};
   }
-  ${({ head, item }) => {
+  ${({ head, item, theme }) => {
     if (head) {
       return `
-                background: #EBEBF2;
+                background: ${theme.v2.neutral};
                 border-top-right-radius: 4px;
                 border-top-left-radius: 4px;
                 padding-left: 20px;
@@ -85,7 +85,7 @@ export const TableItem = styled.div<TableProps>`
     }
     if (item) {
       return `
-                border-bottom: 1px solid #EBEBF2;
+                border-bottom: ${theme.lkMain.borderBottom};
                 &:last-child {
                   border-bottom: 0px;
                 }
@@ -103,6 +103,7 @@ export const TableItem = styled.div<TableProps>`
 
 export const TableInnerItem = styled.div<TableProps>`
   color: #000;
+  color: ${({ theme }) => theme.lkMain.navLink};
   font-size: 14px;
   &:nth-child(3) {
     position: absolute;
