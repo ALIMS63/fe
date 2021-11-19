@@ -33,23 +33,7 @@ export const RageOfDatesModal: FC<RageOfDatesModalProps> = ({ onClose, open, set
         setSelectType(val);
     };
 
-    /* 
-        Январь - 31 день
-        Февраль - 28 дней (29 в високосном)
-        Март - 31 день
-        Апрель - 30 дней
-        Май - 31 день
-        Июнь - 30 дней
-        Июль - 31 день
-        Август - 31 день
-        Сентябрь - 30 дней
-        Октябрь - 31 день
-        Ноябрь - 30 дней
-        Декабрь - 31 день
-    */
-
     const days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
     const months = [
         'Январь',
         'Февраль',
@@ -95,11 +79,6 @@ export const RageOfDatesModal: FC<RageOfDatesModalProps> = ({ onClose, open, set
         setEnd(listItemDateEnd ? listItemDateEnd : endMonths[endMonths.length - 1]);
         setSelectType("Последний месяц");
     };
-
-    /* 
-        ИСПРАВИТЬ ДВА БАГА:
-        Можно выбрать диапозон - с марта до февраля одного и того же года(и другие подобные)
-    */
 
     return ( 
         <>
