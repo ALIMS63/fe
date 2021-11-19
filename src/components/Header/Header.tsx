@@ -44,8 +44,6 @@ export const Header: FC<Props> = ({ admPanel }: Props) => {
   const swithTheme = themeContext.toggleTheme;
   const theme = themeContext.theme;
   const logOut = appContext.logOut;
-  // const user = appContext.user;
-  // const admin = appContext.isAdmin;
   const admin = localStorage.getItem('admin') === 'true';
   const user = localStorage.getItem('token');
   const history = useHistory();

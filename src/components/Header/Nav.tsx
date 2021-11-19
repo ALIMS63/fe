@@ -57,13 +57,14 @@ export const Nav: FC<Props> = ({
           </StyledLink>
         </ListItem>
         <ListItem mob>
-          {location === '/' ? (
+          {/* location === '/' ? (
             <LinkButton onClick={handleClick}>{t('headerButton.personalArea')}</LinkButton>
           ) : user ? (
             <LinkButton onClick={logOut}>{t('logout')}</LinkButton>
           ) : (
             <LinkButton onClick={handleClick}>{t('headerButton.personalArea')}</LinkButton>
-          )}
+          ) */}
+          <StyledLink to="/info" onClick={handleClick}>{t('headerButton.personalArea')}</StyledLink>
         </ListItem>
         {admin && (
           <ListItem mob>

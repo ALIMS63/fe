@@ -691,7 +691,7 @@ export const HeaderBar: FC = () => {
             Вывод средств
           </H3>
           <Styled.Desc style={{ marginBottom: '20px', maxWidth: '340px' }}>
-            Мы сообщим вам о результате операции пополнения в личном уведомлении.
+            Мы сообщим вам о результате операции вывода в личном уведомлении.
           </Styled.Desc>
         </Modal>
       </CSSTransition>
@@ -1185,7 +1185,7 @@ const PanelCard = styled(Card)`
   padding: 20px;
   background: ${(props) => props.theme.lkMain.balanceBlock};
   @media (max-width: 1024px) {
-    padding: 20px 0;
+    // padding: 20px 0;
   }
 `;
 
