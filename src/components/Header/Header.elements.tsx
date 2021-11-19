@@ -172,7 +172,7 @@ export const HeaderMenu = styled.div<{ open?: boolean }>`
       display: block;
     }
     position: fixed;
-    background: ${(props) => props.theme.modal};
+    background: ${({ theme }) => theme.header2.background};
     width: 100%;
     height: 100%;
     left: ${(props) => (props.open ? '0' : '-100%')};
@@ -293,12 +293,20 @@ export const StyledLink = styled(NavHashLink).attrs({ activeclassname })`
   text-transform: uppercase;
 `;
 
-export const LinkButton = styled.div`
+export const LinkButton = styled.div<{ mob?: boolean; }>`
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-  color: ${(props) => props.theme.text};
+  color: ${({ theme }) => theme.main.bodyColor};
   text-transform: uppercase;
+  ${({ mob, theme }) => {
+    if (mob) {
+      return `
+        text-align: center;
+        color: ${theme.main.bodyColor};
+      `;
+    };
+  }}
 `;
 
 export const Switch = styled.div`

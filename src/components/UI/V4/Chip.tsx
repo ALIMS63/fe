@@ -29,7 +29,6 @@ Chip.defaultProps = {
 
 const ChipContainer = styled.div<{ bgColor: string }>`
   background-color: ${(props) => props.bgColor};
-  opacity: 0.5;
   display: flex;
   align-items: center;
   justify-content: center;
