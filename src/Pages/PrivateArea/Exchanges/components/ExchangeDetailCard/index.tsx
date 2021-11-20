@@ -233,8 +233,8 @@ export const ExchangeDetailCard: FC<DetailCardProps> = ({
       hubConnection
         .invoke('GetTotalExecutedExchanges', [id])
         .then((res) => {
-          setTotal(res);
-          console.log(type, res);
+          console.log(type, res.collection[0].totalExecutedExchanges);
+          setTotal(res.collection[0].totalExecutedExchanges);
         })
         .catch((err) => console.error(err));
     }
@@ -446,6 +446,8 @@ export const ExchangeDetailCard: FC<DetailCardProps> = ({
       : recepientTotalExchanges;
   }
 
+  console.log(ownerInExchange, ownerTotalExchanges, recepientTotalExchanges);
+
   return (
     <>
       <Container>
@@ -578,7 +580,7 @@ export const ExchangeDetailCard: FC<DetailCardProps> = ({
                   Рейтинг продавца:
                 </Text>
                 <Title lH={28} onMobileTitleInExchange>
-                  {`${ownerInExchange.seller.rating} (${ownerInExchange.seller.totalExchanges})`}
+                  {ownerInExchange.seller.rating} ({ownerInExchange.seller.totalExchanges})
                 </Title>
               </S.BlockWrapper>
             </LeftSide>

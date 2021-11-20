@@ -23,9 +23,7 @@ export const Nav: FC<Props> = ({
   lang,
 }: Props) => {
   const { t, i18n } = useTranslation();
-  const themeContext = useContext(ThemeContext);
-  const swithTheme = themeContext.toggleTheme;
-  const theme = themeContext.theme;
+  const { toggleTheme, theme } = useContext(ThemeContext);
 
   const scrollWidthOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -57,13 +55,13 @@ export const Nav: FC<Props> = ({
           </StyledLink>
         </ListItem>
         <ListItem mob>
-          {location === '/' ? (
-            <LinkButton onClick={handleClick}>{t('headerButton.personalArea')}</LinkButton>
-          ) : user ? (
-            <LinkButton onClick={logOut}>{t('logout')}</LinkButton>
-          ) : (
-            <LinkButton onClick={handleClick}>{t('headerButton.personalArea')}</LinkButton>
-          )}
+          <LinkButton mob onClick={toggleTheme}>{theme === "dark" ? "Светлая тема" : "Темная тема"}</LinkButton>
+        </ListItem>
+        <ListItem mob>
+          <LinkButton mob>{lang.toUpperCase()}</LinkButton>
+        </ListItem>
+        <ListItem mob>
+          <LinkButton mob onClick={handleClick}>{user ? t('headerButton.personalArea') : "Войти"}</LinkButton>
         </ListItem>
         {admin && (
           <ListItem mob>
@@ -72,6 +70,11 @@ export const Nav: FC<Props> = ({
             </StyledLink>
           </ListItem>
         )}
+        {user && (
+          <ListItem mob>
+            <LinkButton mob onClick={logOut}>{t('logout')}</LinkButton>
+          </ListItem>
+         )} 
       </List>
     </HeaderNav>
   );

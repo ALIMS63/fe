@@ -165,8 +165,6 @@ export const Payments: FC = () => {
     }
   }
 
-  console.log(statsDeposit);
-
   return (
     <>
       {statsDeposit.length || bigArr.length || smallArr.length ? (
