@@ -402,7 +402,7 @@ export const HistoryOperations = () => {
 
   return (
     <>
-      <Container>
+      <Container pTabletNone>
         <Heading title="История операций" withoutBtn />
         <Styled.FilterAllBlock style={{ position: 'relative' }}>
           <Styled.FilterDivision>

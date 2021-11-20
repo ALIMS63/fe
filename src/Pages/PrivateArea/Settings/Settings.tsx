@@ -317,7 +317,7 @@ export const Settings: FC = () => {
 
   return (
     <Container pNone>
-      <Container>
+      <Container dpNone>
         <Heading
           onClick={() => history.push(routers.settingsNewPayMethod)}
           title="Настройки"
@@ -401,7 +401,7 @@ const Ceil = styled.li<{ checked?: boolean }>`
   align-items: center;
   gap: 10px;
   > span {
-    color: ${(props) => (props.checked ? '#0094FF' : '')};
+    color: ${(props) => (props.checked ? '#0094FF' : props.theme.lkMain.switcherTitleOff)};
   }
 
   :nth-child(1) {
@@ -434,8 +434,8 @@ const TableRow = styled.ul`
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #000000;
-  background: #ffffff;
+  color: ${(props) => props.theme.lkMain.navLink};
+  background: ${(props) => props.theme.main.blocksBackground};
   margin-bottom: 2px;
   cursor: pointer;
 `;
@@ -446,9 +446,9 @@ const TableHeader = styled(TableRow)`
   font-weight: 300;
   font-size: 14px;
   line-height: 16px;
-  color: #000000;
 
-  background: #ebebf2;
+  background: ${(props) => props.theme.lkMain.depositHeader};
+  color: ${(props) => props.theme.lkMain.navLink};
   margin-bottom: 0px;
 
   @media ${Device.mobile} {
@@ -458,7 +458,7 @@ const TableHeader = styled(TableRow)`
 
 const TableCard = styled(Card)`
   background: transparent;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
   border-radius: 4px;
   margin-bottom: 40px;
 `;
@@ -467,7 +467,8 @@ const MobileCard = styled.div`
   width: 100;
   display: flex;
   flex-direction: column;
-  background: ${(props) => props.theme.white};
+  color: ${(props) => props.theme.lkMain.navLink};
+  background: ${(props) => props.theme.main.blocksBackground};
   padding: 20px;
   margin-bottom: 10px;
   &:last-child {

@@ -102,7 +102,6 @@ export const TableItem = styled.div<TableProps>`
 `;
 
 export const TableInnerItem = styled.div<TableProps>`
-  color: #000;
   color: ${({ theme }) => theme.lkMain.navLink};
   font-size: 14px;
   &:nth-child(3) {
@@ -173,7 +172,7 @@ export const Button = styled.button<{ newItems: boolean }>`
 `;
 
 export const Link = styled.a`
-  color: #000;
+  color: ${({ theme }) => theme.lkMain.navLink};
   &:hover {
     text-decoration: underline;
   }

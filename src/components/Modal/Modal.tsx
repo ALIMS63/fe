@@ -108,7 +108,7 @@ const ModalContainer = styled.div<{ zIndex: string; lottery?: boolean }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${(props) => props.theme.v2.modalBg};
   display: block;
   transition: 0.3s;
   z-index: ${(props) => props.zIndex};
@@ -131,7 +131,7 @@ const ModalComponent = styled.div<{
   flex-direction: column;
   margin: 50px auto;
   cursor: auto;
-  background: ${(props) => props.theme.modal};
+  background: ${(props) => props.theme.lkMain.balanceBlock};
   border-radius: 8px;
   padding: 40px;
   max-width: ${(props) => (props.width ? props.width + 'px' : '400px')};

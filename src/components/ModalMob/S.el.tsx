@@ -12,7 +12,7 @@ export const Close = styled(CloseIcon)`
 `;
 
 export const Wrap = styled.div<{ open: boolean }>`
-  background-color: ${(props) => (props.open ? 'rgba(63, 62, 78, .4)' : 'transparent')};
+  background-color: ${(props) => (props.open ? props.theme.v2.modalBg : 'transparent')};
   pointer-events: ${(props) => (props.open ? 'auto' : 'none')};
   position: fixed;
   height: 100%;

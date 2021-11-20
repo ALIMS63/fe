@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 export const CheckboxIcon = styled.span<{ dis?: boolean }>`
   background: transparent;
-  border: 1px solid ${props => props.theme.v2.blackText};
+  border: 1px solid ${(props) => props.theme.v2.blackText};
   border-radius: 3px;
   display: block;
   height: 14px;
@@ -14,7 +14,7 @@ export const CheckboxIcon = styled.span<{ dis?: boolean }>`
   ${(props) => {
     if (props.dis) {
       return `
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid ${props.theme.lkMain.navLink};
       box-sizing: border-box;
       border-radius: 2px;
       `;
@@ -44,7 +44,7 @@ export const CheckboxInput = styled.input`
   position: absolute;
   width: 0;
   &:checked ~ ${CheckboxIcon}:after {
-    border-color: #fff;
+    border-color: ${(props) => props.theme.lkMain.navLink};
   }
   &:checked ~ ${CheckboxIcon} {
     background: #0094ff;
@@ -64,12 +64,7 @@ export const LabelContainer = styled.label`
 export const CheckboxLabel = styled.div<{ checked: boolean | undefined; labelBold: boolean }>`
   font-size: 14px;
   line-height: 20px;
-<<<<<<< HEAD
-  font-weight: ${props => props.labelBold ? 500 : 400};
-  color: ${props => props.checked ? props.theme.blue : props.theme.v2.blackText};
-=======
   font-weight: ${(props) => (props.labelBold ? 500 : 400)};
   color: ${(props) => (props.checked ? props.theme.blue : props.theme.black)};
->>>>>>> 221b6c8860220aaca87b316a9bd034be482422fb
   margin-left: 10px;
 `;

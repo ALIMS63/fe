@@ -146,7 +146,7 @@ export const ViewPayMethod = ({ match }: RouteComponentProps<PropsMatch>) => {
         />
 
         <TitleWrapper>
-         <Title mB={0} heading2>
+          <Title mB={0} heading2>
             {' '}
             {userMethod && !payMethod.paymentAddress ? (
               <>Платежный метод {payList[userMethod.kind]}</>
@@ -252,7 +252,7 @@ const SwitcherRow = styled.div<{ checked?: boolean }>`
     display: flex;
     align-items: center;
 
-    color: ${(props) => (props.checked ? '#0094FF' : '')};
+    color: ${(props) => (props.checked ? '#0094FF' : props.theme.lkMain.switcherTitleOff)};
   }
 `;
 
@@ -267,9 +267,9 @@ const Blocks = styled.div`
 
 const LeftSide = styled.div`
   width: calc(100% - 700px);
-  background: #eaeff4;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
-  border-radius: 4px;
+  background: ${(props) => props.theme.v2.neutral2};
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
+  border-radius: 4px 0 0 4px;
 
   padding: 40px;
 
@@ -299,7 +299,7 @@ const Entry = styled.div`
       font-size: 14px;
       line-height: 20px;
 
-      color: #000000;
+      color: ${(props) => props.theme.lkMain.navLink};
     }
     :nth-child(2) {
       font-weight: bold;
@@ -308,7 +308,7 @@ const Entry = styled.div`
       display: flex;
       align-items: center;
 
-      color: #3f3e4e;
+      color: ${(props) => props.theme.main.bodyColor};
     }
   }
 `;
@@ -321,8 +321,8 @@ const RightSide = styled.div`
   flex-direction: column;
   gap: 20px;
 
-  background: #ffffff;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
+  background: ${(props) => props.theme.lkMain.balanceBlock};
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
   border-radius: 0px 4px 4px 0px;
 
   @media ${Device.mobile} {
@@ -339,7 +339,7 @@ const RightSide = styled.div`
         font-size: 14px;
         line-height: 16px;
 
-        color: #000000;
+        color: ${(props) => props.theme.lkMain.navLink};
       }
     }
   }

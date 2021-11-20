@@ -1,32 +1,30 @@
 import { Container } from '../../../../components/UI/Container';
-import styled, { keyframes } from "styled-components/macro";
-import { FC } from "react";
+import styled, { keyframes } from 'styled-components/macro';
+import { FC } from 'react';
 
 export const Loading = () => {
-    return (
-      <Container>
-        <LoadContainer>
-          <Spinner />
-        </LoadContainer>
-      </Container>
-    )
+  return (
+    <Container>
+      <LoadContainer>
+        <Spinner />
+      </LoadContainer>
+    </Container>
+  );
 };
 
 type NotItemsType = {
-    text: string;
-}
+  text: string;
+};
 
 export const NotItems: FC<NotItemsType> = ({ text }: NotItemsType) => {
-    return (
-        <Container>
-          <LoadContainer>
-            <NotDeposits>
-              {text}
-            </NotDeposits>
-          </LoadContainer>
-      </Container>  
-    )
-}
+  return (
+    <Container>
+      <LoadContainer>
+        <NotDeposits>{text}</NotDeposits>
+      </LoadContainer>
+    </Container>
+  );
+};
 
 export const LoadContainer = styled.div`
   margin-bottom: 40px;
@@ -42,7 +40,7 @@ export const NotDeposits = styled.div`
   font-size: 14px;
   line-height: 20px;
   margin: 20px 0;
-  color: #000;
+  color: ${(props) => props.theme.lkMain.navLink};
   width: 100%;
   display: flex;
   align-items: center;

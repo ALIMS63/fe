@@ -98,11 +98,11 @@ export const Header: FC<Props> = ({ admPanel }: Props) => {
 
   function handleAuthClick() {
     history.push(`/login/0`);
-  };
+  }
 
   function handleLogoClick() {
-    history.push("/");
-  };
+    history.push('/');
+  }
 
   return (
     <>
@@ -129,7 +129,7 @@ export const Header: FC<Props> = ({ admPanel }: Props) => {
             </HeaderMenu>
 
             {lang === 'ru' ? (
-              <Languale 
+              <Languale
                 auth={user ? true : false}
                 admin={admin ? true : false}
                 onClick={() => i18n.changeLanguage('en')}
@@ -168,17 +168,17 @@ export const Header: FC<Props> = ({ admPanel }: Props) => {
               {theme === 'light' ? <DarkTheme /> : <LightTheme />}
             </SwitchTheme>
             <ButtonsRev className={user === null || admin === null ? 'is-placeholder' : ''}>
-              {admin ? (
-                <AdminLink to="/admin">{t('headerButton.admin')}</AdminLink>
-              ) : null}
-            </ButtonsRev> 
-            {user ?
-            <Btn primary header onClick={handleClick}>
-              {t('headerButton.personalArea')}
-            </Btn> :
-            <Btn primary onClick={handleAuthClick}>
-              Войти
-            </Btn>}
+              {admin ? <AdminLink to="/admin">{t('headerButton.admin')}</AdminLink> : null}
+            </ButtonsRev>
+            {user ? (
+              <Btn primary header onClick={handleClick}>
+                {t('headerButton.personalArea')}
+              </Btn>
+            ) : (
+              <Btn primary onClick={handleAuthClick}>
+                Войти
+              </Btn>
+            )}
             <MenuBtn open={open} onClick={() => setOpen(!open)}>
               <span></span>
               <span></span>
