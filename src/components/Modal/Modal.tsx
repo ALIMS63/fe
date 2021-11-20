@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { ReactComponent as Times } from '../../assets/svg/times.svg';
 import { Portal } from '../Portal/Portal';
@@ -187,7 +187,7 @@ const ModalComponent = styled.div<{
   }
 
   .close > svg > path {
-    fill: #000;
+    fill: ${(props) => props.theme.lkMain.navLink};
   }
 
   ${(props) => {

@@ -157,6 +157,7 @@ declare module 'styled-components' {
       switcherBckgOn: string;
       switcherOn: string;
       switcherOff: string;
+      borderDots: string;
     };
     modalBackground: string;
     modalBorder: string;

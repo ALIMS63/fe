@@ -54,21 +54,21 @@ export const Select: FC<SelectType> = ({ data, setSwitch, withoutVolume }: Selec
 
 const Field = styled.div<{ rotate?: boolean }>`
   width: 100%;
-  border: 1px solid #edf0f6;
   border-radius: 4px;
   height: 40px;
   cursor: pointer;
-  background: #f9fafb;
   display: flex;
   align-items: center;
   padding: 12px;
   position: relative;
-  color: #000;
   font-size: 14px;
   line-height: 16px;
   font-weight: 400;
   user-select: none;
   margin-bottom: 10px;
+  background: ${(props) => props.theme.v2.cover};
+  border: 1px solid ${(props) => props.theme.v2.dropdownBorder};
+  color: ${(props) => props.theme.v2.blackText};
 
   & > .arrow {
     position: absolute;
@@ -76,17 +76,20 @@ const Field = styled.div<{ rotate?: boolean }>`
     transform: ${({ rotate }) => `rotate(${rotate ? '90' : '0'}deg)`};
     transition: 0.5s;
   }
+  & > .arrow > path {
+    fill: ${(props) => props.theme.lkMain.navLink};
+  }
 `;
 
 const FieldList = styled.div<{ block: boolean }>`
   width: 100%;
   height: 90px;
-  background: #f9fafb;
+
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   position: absolute;
   z-index: 9999;
-  border: 1px solid #edf0f6;
+
   border-top: 0px;
   left: -1px;
   margin: 0;
@@ -94,6 +97,10 @@ const FieldList = styled.div<{ block: boolean }>`
   min-width: 340px;
   overflow-y: hidden;
   display: ${({ block }) => (block ? 'block' : 'none')};
+
+  background: ${(props) => props.theme.v2.cover};
+  border: 1px solid ${(props) => props.theme.v2.dropdownBorder};
+  color: ${(props) => props.theme.v2.blackText};
   @media (max-width: 768px) {
     min-width: auto;
   }
@@ -106,14 +113,14 @@ const FieldListItem = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 12px;
-  color: #000;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   transition: 0.5s;
   user-select: none;
+  color: ${(props) => props.theme.v2.blackText};
 
   &:hover {
-    background: #edf0f6;
+    background: ${(props) => props.theme.v2.dropdownBorder};
   }
 `;

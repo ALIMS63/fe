@@ -101,7 +101,7 @@ export const HeaderBar: FC = () => {
   const [withDrawModal, setWithDrawModal] = useState<boolean>(false);
   //   const [addDrawModal, setAddDrawModal] = useState<boolean>(addDrawModalOpen);
   const [clickedIndex, setClickedIndex] = useState<number>(0);
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   // Get Balance Kinds List as an Array
   const balancesList = useMemo(() => {
@@ -745,11 +745,7 @@ export const HeaderBar: FC = () => {
           <H4>Личный кабинет</H4>
           <LogoutButton onClick={handleLogOut}>
             <UsernameText>{user}</UsernameText>
-            {theme === 'light' ? 
-            <LogOutIcon />
-            :
-            <DarkLogOutIcon/>
-            }
+            {theme === 'light' ? <LogOutIcon /> : <DarkLogOutIcon />}
           </LogoutButton>
         </PanelTitleBlock>
         <PanelCard>

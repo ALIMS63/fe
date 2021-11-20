@@ -235,7 +235,6 @@ export const DropDownContainer = styled.div`
 `;
 
 export const DropDownHeader = styled.div`
-  border: 1px solid ${props => props.theme.v2.dropdownBorder};
   border-radius: 4px;
   position: relative;
   height: 40px;
@@ -246,8 +245,9 @@ export const DropDownHeader = styled.div`
   transition: 200ms ease-in-out;
   display: flex;
   align-items: center;
-  background: ${props => props.theme.v2.cover};
   box-sizing: border-box;
+  background: ${props => props.theme.v2.cover};
+  border: 1px solid ${props => props.theme.v2.dropdownBorder};
   color: ${props => props.theme.v2.blackText};
 
   ${Arrow} {

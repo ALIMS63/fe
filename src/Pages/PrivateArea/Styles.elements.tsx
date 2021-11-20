@@ -1020,7 +1020,7 @@ export const Desc = styled.h3<{
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #000;
+  color: ${(props) => props.theme.lkMain.navLink};
   margin-bottom: 10px;
   margin-left: 20px;
 
@@ -1063,7 +1063,7 @@ export const Commision = styled.h3<{ marginT?: number; marginB?: number }>`
   line-height: 20px;
   font-weight: 400;
   margin-bottom: 10px;
-  color: #000;
+  color: ${(props) => props.theme.lkMain.navLink};
   margin-top: ${({ marginT }) => marginT}px;
   margin-bottom: ${({ marginB }) => marginB}px;
 
@@ -1077,7 +1077,7 @@ export const Message = styled.h3`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #000;
+  color: ${(props) => props.theme.lkMain.navLink};
   margin: 20px 0px 20px 0px;
   max-width: 240px;
 `;

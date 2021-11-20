@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import { ReactComponent as Close } from '../../../assets/svg/close.svg';
+import { ReactComponent as WhiteClose } from '../../../assets/svg/whiteClose.svg';
 import { ReactComponent as FromTo } from '../../../assets/svg/fromTo.svg';
+
+const theme = localStorage.getItem('theme');
 
 export const Dots = styled.div`
   flex: 1;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+  border-bottom: 1px dashed ${(props) => props.theme.lkMain.borderDots};
   position: relative;
   bottom: 4px;
   min-width: 30px;
@@ -23,7 +27,7 @@ export const KeySpan = styled.div<{ sm?: boolean }>`
 
 export const ContentTitle = styled.div<{ mb10?: boolean }>`
   text-align: start;
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
   margin-bottom: ${(props) => (props.mb10 ? '10px' : '0px')};
 `;
 export const ContentBody = styled.div`
@@ -31,13 +35,12 @@ export const ContentBody = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: start;
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
   gap: 10px;
 
   & > p {
     display: flex;
     justify-content: space-between;
-    background-color: #ffffff;
     position: relative;
   }
 `;
@@ -62,7 +65,7 @@ export const ModalTitle = styled.h1<{ mb20?: boolean }>`
   line-height: 28px;
   text-align: center;
   margin-bottom: ${(props) => (props.mb20 ? '20px' : '0px')};
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
 `;
 export const ModalContent = styled.p<{ gap20?: boolean }>`
   font-style: normal;
@@ -98,7 +101,7 @@ export const Rate = styled.span`
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
 `;
 
 export const RateRow = styled.div`
@@ -127,7 +130,7 @@ export const Container = styled.div`
   gap: 20px;
 `;
 
-export const CloseButton = styled(Close)`
+export const CloseButton = styled(theme === 'light' ? Close : WhiteClose)`
   position: absolute;
   right: 19px;
   top: 19px;
