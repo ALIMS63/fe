@@ -478,13 +478,6 @@ export const HeaderBar: FC = () => {
     const value = Number(outPutEd.replace(/\s/g, ''));
     if (hubConnection && outPutCurrency.length > 0) {
       setWithdrawValueLoad(true);
-      /* console.log('withdraw', outPutCurrency === 'CWD'
-      ? value * 100000
-      : outPutCurrency === 'GLOBAL'
-      ? value * 10000
-      : outPutCurrency === 'MULTICS'
-      ? value * 100
-      : value, Balance[outPutCurrency as keyof typeof Balance]) */
       hubConnection
         .invoke(
           'Withdraw',
@@ -512,31 +505,55 @@ export const HeaderBar: FC = () => {
         .finally(() => setOutPutError(true));
     }
   };
+  const getTextColor = (i: any) => {
+    let color = '#3f3e4e';
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      if (i.balanceKind === 1) {
+        color = '#BEB4FF';
+      } else if (i.balanceKind === 9) {
+        color = '#FFE091';
+      } else if (i.balanceKind === 10) {
+        color = '#FFE091';
+      } else if (i.balanceKind === 11) {
+        color = '#FFE091';
+      } else if (i.balanceKind === 12) {
+        color = '#FFE091';
+      } else if (i.balanceKind === 43) {
+        color = '#BEB4FF';
+      } else if (i.balanceKind === 44) {
+        color = '#BBFFCA';
+      } else if (i.balanceKind === 47) {
+        color = '#FFE091';
+      } else {
+        color = theme === 'dark' ? '#FFE091' : '#2490b1';
+      }
+    }
+
+    return color;
+  };
 
   const getChipColor = (i: any) => {
     let color = '#E0F8FF';
     const theme = localStorage.getItem('theme');
     if (i.balanceKind === 1) {
-      // color = theme === 'light' ? '#FFF4D9' : '#464440';
-      color = '#FFF4D9';
+      color = theme === 'dark' ? '#FFF4D9' : '#FFF4D9';
     } else if (i.balanceKind === 9) {
       color = '#FF416E';
     } else if (i.balanceKind === 10) {
       color = '#6DB9FF';
     } else if (i.balanceKind === 11) {
-      // color = theme === 'light' ? '#BCD476' : '#BCD476';
       color = '#BCD476';
     } else if (i.balanceKind === 12) {
       color = '#A78CF2';
     } else if (i.balanceKind === 43) {
-      // color = theme === 'light' ? '#EFECFF' : '#373D38';
-      color = '#EFECFF';
+      color = theme === 'dark' ? '#3D3D4A' : '#EFECFF';
     } else if (i.balanceKind === 44) {
-      color = '#DAFFE2';
+      color = theme === 'dark' ? '#373D38' : '#DAFFE2';
     } else if (i.balanceKind === 47) {
       color = '#E0F8FF';
     } else {
-      color = '#E0F8FF';
+      color = theme === 'dark' ? '#464440' : '#E0F8FF';
     }
     return color;
   };
@@ -771,6 +788,7 @@ export const HeaderBar: FC = () => {
                         key={`chip-item-${idx}`}
                         leftIcon={i.locked ? <LockIcon /> : null}
                         bgColor={getChipColor(i)}
+                        textColor={getTextColor(i)}
                       >
                         <span>
                           {Number(i.volume).toLocaleString('ru-RU', {
@@ -816,6 +834,7 @@ export const HeaderBar: FC = () => {
                       key={`chip-item-${idx}`}
                       leftIcon={i.locked ? <LockIcon /> : null}
                       bgColor={getChipColor(i)}
+                      textColor={getTextColor(i)}
                     >
                       <span>
                         {Number(i.volume).toLocaleString('ru-RU', {

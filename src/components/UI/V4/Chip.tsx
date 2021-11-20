@@ -6,6 +6,7 @@ interface ChipProps {
   children: React.ReactNode;
   leftIcon?: React.ReactNode | null;
   bgColor?: string;
+  textColor?: string;
 }
 
 export const Chip: FC<ChipProps> = ({
@@ -13,11 +14,12 @@ export const Chip: FC<ChipProps> = ({
   children,
   leftIcon,
   bgColor = '#E0F8FF',
+  textColor = '#3f3e4e',
 }: ChipProps) => {
   return (
     <ChipContainer className={className} bgColor={bgColor}>
       {leftIcon && <ChipLeftIconBlock>{leftIcon}</ChipLeftIconBlock>}
-      <ChipText>{children}</ChipText>
+      <ChipText textColor={textColor}>{children}</ChipText>
     </ChipContainer>
   );
 };
@@ -37,8 +39,8 @@ const ChipContainer = styled.div<{ bgColor: string }>`
   border-radius: 2px;
 `;
 
-const ChipText = styled.div`
-  color: #3f3e4e;
+const ChipText = styled.div<{ textColor: string }>`
+  color: ${(props) => props.textColor};
   font-size: 12px;
   line-height: 14px;
   font-weight: 500;
