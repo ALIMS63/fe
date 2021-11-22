@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components/macro';
 import { ReactComponent as CloseIcon } from '../../assets/v2/svg/close.svg';
-import { ReactComponent as WhiteCloseIcon } from '../../assets/svg/CloseIcon.svg';
 import { Device } from '../../Pages/PrivateArea/consts';
 
-const theme = localStorage.getItem('theme');
-
-export const Close = styled(theme === 'light' ? CloseIcon : WhiteCloseIcon)`
+export const Close = styled(CloseIcon)`
+  & > path {
+    fill: ${(props) => props.theme.lkMain.navLink};
+  }
   position: absolute;
   cursor: pointer;
   top: 20px;
