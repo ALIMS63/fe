@@ -1,17 +1,17 @@
-import { Modal } from "../../../components/Modal/Modal";
-import { FC, useState, useContext, useEffect } from "react";
-import { H3 } from "../../../components/UI/Heading";
-import { CustomSelect as Select, FieldListItem } from "../../../components/UI/CustomSelect";
-import styled from "styled-components/macro";
-import moment from "moment";
+import { Modal } from '../../../components/Modal/Modal';
+import { FC, useState, useContext, useEffect } from 'react';
+import { H3 } from '../../../components/UI/Heading';
+import { CustomSelect as Select, FieldListItem } from '../../../components/UI/CustomSelect';
+import styled from 'styled-components/macro';
+import moment from 'moment';
 import { Button } from '../../../components/Button/V2/Button';
 import { AppContext } from '../../../context/HubContext';
 
 type RageOfDatesModalProps = {
-    onClose: () => void;
-    open: boolean;
-    setStart: (val: Date) => void;
-    setEnd: (val: Date) => void;
+  onClose: () => void;
+  open: boolean;
+  setStart: (val: Date) => void;
+  setEnd: (val: Date) => void;
 };
 
 export const RageOfDatesModal: FC<RageOfDatesModalProps> = ({ onClose, open, setEnd, setStart }: RageOfDatesModalProps) => {
@@ -138,10 +138,10 @@ export const Data = styled.div`
   width: 100%;
   height: 40px;
   border-radius: 4px;
-  border: 1px solid #EDF0F6;
-  background: #F9FAFB;
   margin: 0 auto;
-  color: #000;
+  border: 1px solid ${(props) => props.theme.lkMain.selectBorder};
+  background: ${(props) => props.theme.lkMain.background};
+  color: ${(props) => props.theme.lkMain.navLink};
   font-weight: 400;
   font-size: 14px;
   padding: 12px;
@@ -149,14 +149,14 @@ export const Data = styled.div`
 `;
 
 export const Rages = styled.div`
-    width: 100%;
-    display: flex;
-    margin-bottom: 20px;
-    & > div {
-        width: 50%;
-        margin-right: 20px;
-        &:last-child {
-            margin-right: 0px;
-        }
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  & > div {
+    width: 50%;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0px;
     }
+  }
 `;

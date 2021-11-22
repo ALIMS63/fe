@@ -165,7 +165,7 @@ const ContentBody = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: start;
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
   gap: 10px;
 
   & > p {

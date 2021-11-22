@@ -1,43 +1,47 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import 'moment/locale/ru';
-import styled from "styled-components/macro";
-import Scrollbars from "react-custom-scrollbars";
+import styled from 'styled-components/macro';
+import Scrollbars from 'react-custom-scrollbars';
 import { ReactComponent as Arrow } from '../../assets/svg/selArrow.svg';
-import moment from "moment";
+import { ReactComponent as DarkArrow } from '../../assets/svg/dark-down-arrow.svg';
 
 type CustomSelectType = {
-    listOpen: boolean;
-    children: React.ReactNode;
-    defaultDesc: any;
-    hideList: () => void;
+  listOpen: boolean;
+  children: React.ReactNode;
+  defaultDesc: any;
+  hideList: () => void;
 };
 
-export const CustomSelect: FC<CustomSelectType> = ({ listOpen, children, defaultDesc, hideList }: CustomSelectType) => {
-    return (
-      <Field onClick={hideList} rotate={listOpen}>
-        <Arrow className="arrow" />
-        {defaultDesc}
-        <FieldList block={listOpen}>
-          <Scrollbars className="pagination">
-            {children}
-          </Scrollbars>
-        </FieldList>
-      </Field>
-    );
+export const CustomSelect: FC<CustomSelectType> = ({
+  listOpen,
+  children,
+  defaultDesc,
+  hideList,
+}: CustomSelectType) => {
+  const theme = localStorage.getItem('theme');
+  return (
+    <Field onClick={hideList} rotate={listOpen}>
+      {theme === 'light' ? <Arrow className="arrow" /> : <DarkArrow className="arrow" />}
+      {defaultDesc}
+      <FieldList block={listOpen}>
+        <Scrollbars className="pagination">{children}</Scrollbars>
+      </FieldList>
+    </Field>
+  );
 };
 
 export const Field = styled.div<{ rotate?: boolean }>`
   width: 100%;
-  border: 1px solid #edf0f6;
-  border-radius: 4px; 
+  border: 1px solid ${(props) => props.theme.lkMain.selectBorder};
+  background: ${(props) => props.theme.lkMain.background};
+  color: ${(props) => props.theme.lkMain.navLink};
+  border-radius: 4px;
   height: 40px;
   cursor: pointer;
-  background: #f9fafb;
   display: flex;
   align-items: center;
   padding: 12px;
   position: relative;
-  color: #000;
   font-size: 14px;
   line-height: 16px;
   font-weight: 400;
@@ -55,12 +59,12 @@ export const Field = styled.div<{ rotate?: boolean }>`
 const FieldList = styled.div<{ block: boolean }>`
   width: 100%;
   height: 90px;
-  background: #f9fafb;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   position: absolute;
   z-index: 9999;
-  border: 1px solid #edf0f6;
+  border: 1px solid ${(props) => props.theme.lkMain.selectBorder};
+  background: ${(props) => props.theme.lkMain.background};
   border-top: 0px;
   left: -1px;
   margin: 0;
@@ -79,7 +83,7 @@ export const FieldListItem = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 12px;
-  color: #000;
+  color: ${(props) => props.theme.lkMain.navLink};
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;

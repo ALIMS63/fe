@@ -191,18 +191,6 @@ export const NewPayMethod: FC = () => {
               setSelectedOption={setBalanceType}
             />
           </Entry>
-          {/* <Entry>
-            <span>Номер карты:</span>
-            <Input
-              name="toSum"
-              value={bankNumber}
-              onChange={(e) => setBankNumber(e.target.value)}
-            />
-          </Entry>
-          <Entry>
-            <span>Держатель карты:</span>
-            <Input name="toSum" value={name} onChange={(e) => setName(e.target.value)} />
-          </Entry> */}
           {isUSDT ? (
             <Entry>
               <span>Адрес кошелька:</span>
@@ -311,6 +299,7 @@ const SwitcherRow = styled.div<{ checked?: boolean }>`
     display: flex;
     align-items: center;
 
+    color: ${(props) => (props.checked ? '#0094FF' : props.theme.lkMain.switcherTitleOff)};
     color: ${(props) => (props.checked ? '#0094FF' : '')};
 
     &:hover {
@@ -326,9 +315,9 @@ const Blocks = styled.div`
 
 const LeftSide = styled.div`
   width: calc(100% - 700px);
-  background: #eaeff4;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
-  border-radius: 4px;
+  background: ${(props) => props.theme.v2.neutral2};
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
+  border-radius: 4px 0 0 4px;
 
   padding: 40px;
 
@@ -358,6 +347,7 @@ const Entry = styled.div<{ sm?: boolean }>`
       line-height: 20px;
 
       color: #000000;
+      color: ${(props) => props.theme.lkMain.navLink};
     }
     :nth-child(2) {
       font-weight: bold;
@@ -367,6 +357,7 @@ const Entry = styled.div<{ sm?: boolean }>`
       align-items: center;
 
       color: #3f3e4e;
+      color: ${(props) => props.theme.main.bodyColor};
     }
   }
 `;
@@ -380,8 +371,8 @@ const RightSide = styled.div`
   flex-direction: column;
   gap: 20px;
 
-  background: #ffffff;
-  box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
+  background: ${(props) => props.theme.lkMain.balanceBlock};
+  box-shadow: ${(props) => props.theme.lkMain.boxShadow};
   border-radius: 0px 4px 4px 0px;
 
   @media ${Device.mobile} {

@@ -108,7 +108,8 @@ export const RowHistory = styled(Row)`
 const header = css`
   color: #000000;
   padding: 10px 35px;
-  background: #ebebf2;
+  background: ${(props) => props.theme.lkMain.depositHeader};
+
   border-bottom: none;
   margin: 0;
   ${Cell} {

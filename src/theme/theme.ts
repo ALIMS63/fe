@@ -107,14 +107,14 @@ export const lightTheme = {
     activeBlue: '#0094FF',
     neutralBlue: 'rgba(0, 148, 255, 0.05)',
     btnNeutral: '#EBEBF2',
-    body: "#E5E5E5",
+    body: '#E5E5E5',
     cover: '#f9fafb',
     modalBg: 'rgba(63, 62, 78, 0.4)',
     dropdownBorder: '#EDF0F7',
     dropdownBorderHover: '#EDF0F7',
-    header:{
-      background: "#fff",
-      burger: "#000"
+    header: {
+      background: '#fff',
+      burger: '#000',
     },
     chart: {
       background: '#fff',
@@ -143,14 +143,24 @@ export const lightTheme = {
     activeChipBckgr: '#EBEBF2',
     activeChip: '000',
     chip: 'rgba(0, 0, 0, .6)',
-    activeChipBorder: '#EBEBF2',
-    chipBorder: '#DFDFE9',
+    programDesc: '#000000',
+    activeChipBorder: '1px solid #EBEBF2',
+    chipBorder: ' 1px solid #DFDFE9',
     tileTopSide: '#ebebf2',
     depositOpenLeftSide: '#ebebf2',
     selectBack: '#f9fafb',
     selectBorder: '1px solid #edf0f7',
     inputPlaceholder: 'rgba(0, 0, 0, 0.4)',
+    switcherTitleOn: '#000000',
+    switcherTitleOff: '#000000',
+    switcherBckgOn: '#DBE7F1',
+    switcherBckgOff: '#0094FF',
+    switcherOn: '#FFFFFF',
+    switcherOff: '#FFFFFF',
+    borderDots: '0, 0, 0, 0.2',
   },
+  modalBackground: 'rgba(38, 50, 56, 0.5)',
+  modalBorder: '1px solid rgba(255, 255, 255, 0.5)',
 
   // NEW CODE
   main: {
@@ -309,14 +319,14 @@ export const darkTheme = {
     activeBlue: '#0094FF',
     neutralBlue: '#33333A',
     btnNeutral: 'rgba(81, 81, 114, 0.4)',
-    body: "#E5E5E5",
+    body: '#E5E5E5',
     cover: '#1F1F25',
     modalBg: 'rgba(15, 15, 20, 0.8)',
     dropdownBorder: 'rgba(81, 81, 114, 0.4)',
     dropdownBorderHover: 'rgba(81, 81, 114, 0.6)',
-    header:{
-      background: "#fff",
-      burger: "#FFF"
+    header: {
+      background: '#fff',
+      burger: '#FFF',
     },
     chart: {
       background: '#28282F',
@@ -345,14 +355,24 @@ export const darkTheme = {
     activeChipBckgr: '#515172',
     activeChip: '#FFFFFF',
     chip: 'rgba(255, 255, 255, 0.6)',
-    activeChipBorder: '#515172',
-    chipBorder: 'rgba(81, 81, 114, 0.4)',
+    programDesc: 'rgba(255, 255, 255, 0.6)',
+    activeChipBorder: '1px solid rgba(81, 81, 114, 0.4)',
+    chipBorder: '1px solid rgba(81, 81, 114, 0.4)',
     tileTopSide: 'rgba(81, 81, 114, 0.4)',
     depositOpenLeftSide: '#33333A',
     selectBack: '#1F1F25',
     selectBorder: '1px solid rgba(81, 81, 114, 0.4)',
     inputPlaceholder: 'rgba(255, 255, 255, 0.4)',
+    switcherTitleOn: '#FFFFFF',
+    switcherTitleOff: '#52525C',
+    switcherBckgOn: '#1F1F25',
+    switcherBckgOff: '#004E87',
+    switcherOn: '#52525C',
+    switcherOff: '#0094FF',
+    borderDots: '#FFFFFF',
   },
+  modalBackground: 'rgba(15, 15, 20, 0.8)',
+  modalBorder: 'none',
 
   // NEW CODE
 

@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const CloseDeposit: FC<Props> = ({ onClose, open, deposit, calculated }: Props) => {
-console.log('deposit', deposit)
+  console.log('deposit', deposit);
   const { hubConnection } = useContext(AppContext);
 
   const depositExchange = async (amountId: string, kind: number) => {

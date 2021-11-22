@@ -366,7 +366,12 @@ button {
 }
 `;
 
-export const Container = styled.div<{ pNone?: boolean; bigMargin?: boolean; ppNone?: boolean }>`
+export const Container = styled.div<{
+  pNone?: boolean;
+  bigMargin?: boolean;
+  ppNone?: boolean;
+  dpNone?: boolean;
+}>`
   -webkit-background-clip: content-box;
   background-clip: content-box;
   z-index: 1;
@@ -374,8 +379,8 @@ export const Container = styled.div<{ pNone?: boolean; bigMargin?: boolean; ppNo
   max-width: 1080px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: ${(props) => (props.dpNone ? '0' : '10px')};
+  padding-left: ${(props) => (props.dpNone ? '0' : '10px')};
   display: flex;
   flex-direction: column;
   justify-content: space-around;

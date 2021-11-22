@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const H2 = styled.h2<{ center?: boolean; mb?: boolean; mt?: boolean; }>` 
+export const H2 = styled.h2<{ center?: boolean; mb?: boolean; mt?: boolean }>`
   font-weight: 500;
   font-size: 48px;
   line-height: 56px;
@@ -22,7 +22,7 @@ export const H2 = styled.h2<{ center?: boolean; mb?: boolean; mt?: boolean; }>`
       return `
         margin-bottom: 20px;
       `;
-    };
+    }
   }}
 
   ${({ mt }) => {
@@ -32,7 +32,7 @@ export const H2 = styled.h2<{ center?: boolean; mb?: boolean; mt?: boolean; }>`
           margin-top: 10px;
         }
       `;
-    };
+    }
   }}
 
   @media only screen and (max-width: 767px) {
@@ -54,29 +54,26 @@ export const H2 = styled.h2<{ center?: boolean; mb?: boolean; mt?: boolean; }>`
   }
 `;
 
-
-export const H3 = styled.h3<{ center?: boolean; modalTitle?: boolean; }>`
+export const H3 = styled.h3<{ center?: boolean; modalTitle?: boolean }>`
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
-  color: #3F3E4E;
-
-  ${({ center }) => {
-    if (center) {
-      return `
+  color: ${(props) => props.theme.main.bodyColor};
+    ${({ center }) => {
+      if (center) {
+        return `
         text-align: center;
         margin-top: 32px;
         margin-bottom: 32px;
       `;
-    };
-  }}
-
-  ${({ modalTitle }) => {
-    if (modalTitle) {
-      return `
+      }
+    }}
+    ${({ modalTitle }) => {
+      if (modalTitle) {
+        return `
           margin-top: 20px;
           margin-bottom: 40px;
       `;
-    };
-  }}
+      }
+    }};
 `;

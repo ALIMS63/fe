@@ -1,10 +1,16 @@
-import React, { FC } from 'react';
+import { FC, useContext } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactComponent as ListIcon } from '../../../../assets/v2/svg/list.svg';
 import { ReactComponent as ListFillIcon } from '../../../../assets/v2/svg/listfill.svg';
 import { ReactComponent as TileIcon } from '../../../../assets/v2/svg/tile.svg';
 import { ReactComponent as TileFillIcon } from '../../../../assets/v2/svg/tilefill.svg';
+
+import { ReactComponent as DarkListIcon } from '../../../../assets/svg/DarkListIcon.svg';
+import { ReactComponent as DarkListFillIcon } from '../../../../assets/svg/DarkListFillIcon.svg';
+import { ReactComponent as DarkTileIcon } from '../../../../assets/svg/DarkTileIcon.svg';
+import { ReactComponent as DarkTileFillIcon } from '../../../../assets/svg/DarkTileFillIcon.svg';
+import { ThemeContext } from '../../../../context/ThemeContext';
 import useWindowSize from '../../../../hooks/useWindowSize';
 import * as S from './S.el';
 
@@ -37,6 +43,7 @@ export const Filter: FC<FilterProps> = ({
     if (type !== viewType) setViewType?.(type);
   };
 
+  const {theme} = useContext(ThemeContext);
   const screen = useWindowSize();
 
   return (
@@ -80,10 +87,14 @@ export const Filter: FC<FilterProps> = ({
           {!withoutViewType && (
             <S.FilterTypes>
               <S.FilterTypeList onClick={() => handleActive('list')}>
-                {viewType === 'list' ? <ListFillIcon /> : <ListIcon />}
+                {viewType === 'list' ? 
+                (theme === 'light' ? <ListFillIcon /> :<DarkListFillIcon />) : 
+                (theme === 'light' ? <ListIcon /> :<DarkListIcon />)}
               </S.FilterTypeList>
               <S.FilterTypeTile onClick={() => handleActive('tile')}>
-                {viewType === 'tile' ? <TileFillIcon /> : <TileIcon />}
+                {viewType === 'tile' ? 
+                (theme === 'light' ? <TileFillIcon /> :<DarkTileFillIcon />) : 
+                (theme === 'light' ? <TileIcon /> :<DarkTileIcon />)}
               </S.FilterTypeTile>
             </S.FilterTypes>
           )}

@@ -109,7 +109,7 @@ const Row = styled.div`
   font-size: 14px;
   line-height: 20px;
 
-  color: #000000;
+  color: ${(props) => props.theme.lkMain.navLink};
 `;
 
 const InnerBlock = styled.div`
@@ -170,7 +170,7 @@ export const Title = styled.h3`
 
 export const SmallContainer = styled.div<{ wFull?: boolean; mobileWFull?: boolean }>`
   width: 420px;
-  background: #ffffff;
+  background: ${(props) => props.theme.lkMain.balanceBlock};
   padding: 40px;
   border-radius: 8px;
   display: flex;
@@ -189,8 +189,8 @@ export const MobileContent = styled.div`
   display: flex;
   flex-direction: column;
   @media ${Device.mobile} {
-    background: #ffffff;
-    box-shadow: 0px 40px 40px -40px rgba(220, 220, 232, 0.5);
+    background: ${(props) => props.theme.lkMain.balanceBlock};
+    box-shadow: ${(props) => props.theme.lkMain.boxShadow};
     padding: 20px;
   }
 `;

@@ -39,7 +39,7 @@ export const Label = styled.div<{ active?: boolean; dis?: boolean }>`
   font-size: 14px;
   line-height: 20px;
   margin-left: 10px;
-  color: ${(props) => (props.active ? '#0094FF' : props.dis ? 'rgba(0, 0, 0, 0.2)' : props.theme.v2.blackText)};
+  color: ${(props) => (props.active ? '#0094FF' : props.dis ? props.theme.v2.blackText : props.theme.v2.blackText)};
 `;
 
 export const Hr = styled.hr`

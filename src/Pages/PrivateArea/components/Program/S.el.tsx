@@ -61,7 +61,7 @@ export const CardTitle = styled.h3`
 export const CardDesc = styled.div`
   font-size: 14px;
   line-height: 20px;
-  color: ${(props) => props.theme.lkMain.chip};
+  color: ${(props) => props.theme.lkMain.programDesc};
   margin-bottom: 40px;
   @media (max-width: 1024px) {
     margin-bottom: 20px;

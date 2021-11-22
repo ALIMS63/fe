@@ -47,7 +47,7 @@ const InnerBlock = styled.div<{ error?: boolean }>`
   gap: 10px;
   font-size: 14px;
   line-height: 20px;
-  color: ${(props) => (props.error ? '#FF4A31' : '#000000')};
+  color: ${(props) => (props.error ? '#FF4A31' : props.theme.lkMain.navLink)};
 `;
 
 const ContentWrapper = styled.div`
@@ -79,7 +79,7 @@ export const Title = styled.h3`
 
 export const SmallContainer = styled.div<{ wFull?: boolean; mobileWFull?: boolean }>`
   width: 420px;
-  background: #ffffff;
+  background: ${(props) => props.theme.lkMain.balanceBlock};
   padding: 40px;
   border-radius: 8px;
   display: flex;

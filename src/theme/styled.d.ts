@@ -93,7 +93,7 @@ declare module 'styled-components' {
       modalBg: string;
       dropdownBorder: string;
       dropdownBorderHover: string;
-      header:{
+      header: {
         background: string;
         burger: string;
       };
@@ -144,12 +144,24 @@ declare module 'styled-components' {
       globalChip: string;
       globalFutureChip: string;
       gsFutureChip: string;
+
+      programDesc: string;
       tileTopSide: string;
       depositOpenLeftSide: string;
       selectBack: string;
       selectBorder: string;
       inputPlaceholder: string;
+      switcherTitleOff: string;
+      switcherTitleOn: string;
+      switcherBckgOff: string;
+      switcherBckgOn: string;
+      switcherOn: string;
+      switcherOff: string;
+      borderDots: string;
     };
+    modalBackground: string;
+    modalBorder: string;
+
     main: {
       bodyBackground: string;
       bodyColor: string;

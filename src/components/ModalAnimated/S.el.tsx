@@ -3,12 +3,15 @@ import { ReactComponent as CloseIcon } from '../../assets/v2/svg/close.svg';
 import { Device } from '../../Pages/PrivateArea/consts';
 
 export const Close = styled(CloseIcon)`
+  & > path {
+    fill: ${(props) => props.theme.lkMain.navLink};
+  }
   position: absolute;
   cursor: pointer;
   top: 20px;
   right: 20px;
-  fill: ${props => props.theme.v2.blackText};
-  stroke: ${props => props.theme.v2.blackText};
+  fill: ${(props) => props.theme.v2.blackText};
+  stroke: ${(props) => props.theme.v2.blackText};
 
   @media ${Device.mobile} {
     display: none;
@@ -62,7 +65,7 @@ export const ModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.v2.modalBg};
+  background-color: ${(props) => props.theme.v2.modalBg};
   display: block;
   transition: 0.3s;
   z-index: 99999;
@@ -91,7 +94,6 @@ export const Content = styled.div`
   border: 1px solid ${(props) => props.theme.v2.bg};
   box-sizing: border-box;
   border-radius: 8px;
-  /* width: 480px; */
   display: flex;
   flex-direction: column;
   align-items: center;
